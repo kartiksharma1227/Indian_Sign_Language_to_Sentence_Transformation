@@ -2,16 +2,36 @@
 
 ## Project Overview
 
-This is a real-time Indian Sign Language (ISL) detection and translation web application built with Flask, OpenCV, MediaPipe, and TensorFlow. The application enables users to communicate using sign language gestures that are automatically translated into text.
+This is a comprehensive Indian Sign Language (ISL) translation web application built with Flask, OpenCV, MediaPipe, and TensorFlow. The application provides **bidirectional communication support**:
+
+1. **Sign to Text**: Real-time sign language gesture recognition using webcam, automatically translating ISL gestures into text
+2. **Voice/Text to Sign**: Convert spoken words or typed text into visual sign language sequences for learning and communication
+
+This dual-functionality makes the application useful for both hearing-impaired individuals to communicate with others and for people to learn and understand sign language.
 
 ## Features
+
+### Sign to Text Translation
 
 - **Real-time Detection**: Instant sign language gesture recognition using webcam
 - **Word Building**: Automatically builds words from detected letters
 - **Sentence Formation**: Intelligently creates sentences with automatic spacing
 - **High Accuracy**: 95%+ accuracy rate with 43 supported signs (numbers 1-9 and letters A-Z)
 - **Save Functionality**: Export translated sentences to text files
+
+### Voice to Sign Translation
+
+- **Speech Recognition**: Convert spoken words into sign language sequences
+- **Manual Text Input**: Type text to convert into sign language
+- **Visual Display**: Shows corresponding sign images for each letter
+- **Playback Controls**: Play, pause, stop, and replay sign sequences
+- **Adjustable Speed**: Control playback speed for better learning
+- **Export Options**: Save sign sequences and translations
+
+### General Features
+
 - **Cross-platform**: Works on Windows, macOS, and Linux with optimized performance
+- **Bidirectional Communication**: Supports both sign-to-text and voice/text-to-sign conversion
 
 ## Technology Stack
 
@@ -41,16 +61,20 @@ IVP/
 │   ├── base.html          # Base template with navigation
 │   ├── index.html         # Home page
 │   ├── detector.html      # Main detector interface
+│   ├── voice_to_sign.html # Voice/text to sign converter
 │   └── about.html         # About page
 ├── static/                # Static assets
 │   ├── css/              # Stylesheets
 │   │   ├── base.css
 │   │   ├── index.css
 │   │   ├── detector.css
+│   │   ├── voice_to_sign.css
 │   │   └── about.css
+│   ├── Images/           # Sign language images (A-Z)
 │   └── js/               # JavaScript files
 │       ├── main.js       # Common functionality
-│       └── detector.js   # Detector page logic
+│       ├── detector.js   # Detector page logic
+│       └── voice_to_sign.js  # Voice to sign conversion logic
 ├── saved_sentences/       # Directory for saved sentence files
 └── Demo/                  # Demo images/videos
 ```
@@ -88,32 +112,65 @@ IVP/
 
 ## Usage Guide
 
-### Starting Detection
+### Sign to Text Detection
+
+#### Starting Detection
 
 1. Navigate to the **Detector** page
 2. Click the **"Start Detection"** button or press **Enter**
 3. Allow camera permissions when prompted
 4. Position your hand clearly in front of the camera
 
-### Making Gestures
+#### Making Gestures
 
 1. **Form a sign** with your hand (A-Z or 1-9)
 2. **Hold the gesture steady** for 1.5 seconds
 3. The letter will be added to your current word
 4. **Remove your hand** for 3 seconds to add a space between words
 
-### Keyboard Shortcuts
+#### Keyboard Shortcuts
 
 - **Enter**: Start/Stop detection
 - **Space**: Save sentence to file
 - **R**: Reset current word
 - **S**: Reset entire sentence
 
-### Controls
+#### Controls
 
 - **Reset Word**: Clear the current word being built
 - **Reset Sentence**: Clear the entire sentence
 - **Save Sentence**: Export the sentence to a timestamped text file
+
+### Voice/Text to Sign Conversion
+
+#### Using Voice Input
+
+1. Navigate to the **Voice to Sign** page
+2. Click the **microphone button** to start recording
+3. Speak clearly into your device's microphone
+4. The recognized text will appear automatically
+5. Click **"Convert to Signs"** to generate the sign sequence
+
+#### Using Manual Text Input
+
+1. Navigate to the **Voice to Sign** page
+2. Type your text in the input field
+3. Click **"Convert to Signs"** to generate the sign sequence
+
+#### Playback Controls
+
+- **Play**: Start displaying the sign sequence
+- **Pause**: Temporarily pause the playback
+- **Stop**: Stop and reset the playback
+- **Replay**: Start the sequence from the beginning
+- **Speed Control**: Adjust playback speed (0.5x to 2x)
+
+#### Additional Features
+
+- **Progress Bar**: Visual indicator of playback progress
+- **Statistics**: View letter count, word count, and estimated duration
+- **Export**: Save the sign sequence for later reference
+- **Clear**: Reset all inputs and outputs
 
 ## How It Works
 
@@ -177,7 +234,8 @@ All performance settings can be adjusted in `app.py`:
 ### GET Routes
 
 - `/` - Home page
-- `/detector` - Detector interface page
+- `/detector` - Detector interface page (Sign to Text)
+- `/voice_to_sign` - Voice/Text to Sign converter page
 - `/about` - About page
 - `/start_detection` - Initialize camera and start detection
 - `/stop_detection` - Stop detection and release resources
@@ -190,6 +248,7 @@ All performance settings can be adjusted in `app.py`:
 - `/save_sentence` - Save current sentence to file
 - `/reset_word` - Reset current word
 - `/reset_sentence` - Reset entire sentence
+- `/api/text_to_signs` - Convert text input to sign language image sequence
 
 ## File Saving
 
@@ -221,20 +280,32 @@ Sentences are automatically saved to the `saved_sentences/` directory with:
 
 ## Browser Compatibility
 
+### Sign Detection (Camera)
+
 - **Chrome/Edge**: Recommended (best performance)
 - **Firefox**: Fully supported
 - **Safari**: Supported with minor limitations
 - **Mobile browsers**: Supported but performance may vary
 
+### Voice Recognition
+
+- **Chrome/Edge**: Full support for Web Speech API
+- **Safari**: Supported on macOS and iOS
+- **Firefox**: Limited support (manual text input recommended)
+- **Mobile browsers**: Supported on Chrome (Android) and Safari (iOS)
+
 ## Future Enhancements
 
 - [ ] Support for word-level sign language gestures
 - [ ] Multi-hand detection for more complex signs
-- [ ] Voice output for translated text
+- [ ] Voice output for translated text (Text-to-Speech)
 - [ ] Additional sign language systems (ASL, BSL, etc.)
 - [ ] Mobile application version
 - [ ] Cloud-based model for better accuracy
 - [ ] User accounts and history tracking
+- [ ] Offline voice recognition support
+- [ ] Video recording of sign sequences
+- [ ] Sign language grammar and sentence structure support
 
 ## Credits
 
