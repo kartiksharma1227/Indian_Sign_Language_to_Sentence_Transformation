@@ -1,24 +1,28 @@
 ﻿# ========================================
 # Indian Sign Language Translator
-# Python Dependencies
+# Python Dependencies - Render Compatible
 # ========================================
 
 # Flask Web Framework Dependencies
 # ---------------------------------
-Flask==2.3.3              # Main web framework for routing and API
-Werkzeug==2.3.7          # WSGI utility library for Flask
-Jinja2==3.1.2            # Template engine for HTML rendering
-click==8.1.7             # Command-line interface creation kit
-itsdangerous==2.1.2      # Secure session and cookie handling
+Flask==2.3.3
+Werkzeug==2.3.7
+Jinja2==3.1.2
+click==8.1.7
+itsdangerous==2.1.2
 
 # Computer Vision and Machine Learning
 # -------------------------------------
-opencv-python==4.8.1.78  # OpenCV library for video capture and image processing
-mediapipe                # Google's MediaPipe for hand tracking and landmark detection
-tensorflow==2.16.1       # Deep learning framework for gesture classification
-numpy                    # Numerical computing library for array operations
-pandas                   # Data manipulation library (used for model input formatting)
-gunicorn
+opencv-python-headless==4.8.1.78  # Headless version for servers (no GUI)
+mediapipe==0.10.9                 # Pinned to stable Linux-compatible version
+tensorflow==2.15.0                # Downgraded for MediaPipe compatibility
+numpy==1.24.3                     # Compatible with TensorFlow 2.15
+pandas==2.0.3                     # Data manipulation library
+protobuf==3.20.3                  # Required by MediaPipe and TensorFlow
+
+# Production Server
+# ------------------
+gunicorn==21.2.0
 
 # Installation Instructions:
 # --------------------------
@@ -26,8 +30,3 @@ gunicorn
 #
 # Minimum Python Version: 3.8+
 # Recommended Python Version: 3.10
-#
-# Note: TensorFlow may require additional system dependencies
-
-# For GPU support, install tensorflow-gpu instead of tensorflow
-
