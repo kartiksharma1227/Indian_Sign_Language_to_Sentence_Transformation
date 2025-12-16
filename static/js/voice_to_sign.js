@@ -232,7 +232,7 @@ async function convertTextToSigns(text) {
     }
   } catch (error) {
     console.error("Conversion error:", error);
-    showNotification("Failed to convert text to signs", "error");
+    // showNotification("Failed to convert text to signs", "error");
   }
 }
 
