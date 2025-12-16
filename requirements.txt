@@ -14,7 +14,7 @@ itsdangerous==2.1.2      # Secure session and cookie handling
 # Computer Vision and Machine Learning
 # -------------------------------------
 opencv-python==4.8.1.78  # OpenCV library for video capture and image processing
-mediapipe==0.10.21       # Google's MediaPipe for hand tracking and landmark detection
+mediapipe                # Google's MediaPipe for hand tracking and landmark detection
 tensorflow==2.16.1       # Deep learning framework for gesture classification
 numpy                    # Numerical computing library for array operations
 pandas                   # Data manipulation library (used for model input formatting)
@@ -30,3 +30,4 @@ gunicorn
 # Note: TensorFlow may require additional system dependencies
 
 # For GPU support, install tensorflow-gpu instead of tensorflow
+
