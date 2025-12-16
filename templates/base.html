@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<!--
+  Base Template for ISL Translator Application
+  
+  This template provides the common structure for all pages including:
+  - Navigation bar with responsive mobile menu
+  - Main content area (filled by child templates)
+  - Footer with project information
+  
+  Template Blocks:
+  - title: Page title (defaults to "ISL Translator")
+  - page_css: Page-specific CSS files
+  - extra_head: Additional head content
+  - content: Main page content
+  - extra_scripts: Page-specific JavaScript files
+  
+  Dependencies:
+  - Font Awesome 6.0.0 for icons
+  - Inter font from Google Fonts
+  - base.css for common styles
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}ISL Translator{% endblock %}</title>
+    <!-- Base styles (common across all pages) -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/base.css') }}"
+    />
+    <!-- External CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Page-specific styles -->
+    {% block page_css %}{% endblock %} {% block extra_head %}{% endblock %}
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-brand">
+          <i class="fas fa-hands nav-icon"></i>
+          <span class="brand-text">ISL Translator</span>
+        </div>
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <a
+              href="{{ url_for('index') }}"
+              class="nav-link {% if request.endpoint == 'index' %}active{% endif %}"
+            >
+              <i class="fas fa-home"></i> Home
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              href="{{ url_for('detector') }}"
+              class="nav-link {% if request.endpoint == 'detector' %}active{% endif %}"
+            >
+              <i class="fas fa-video"></i> Sign to Text
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              href="{{ url_for('voice_to_sign') }}"
+              class="nav-link {% if request.endpoint == 'voice_to_sign' %}active{% endif %}"
+            >
+              <i class="fas fa-microphone-alt"></i> Voice to Sign
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              href="{{ url_for('about') }}"
+              class="nav-link {% if request.endpoint == 'about' %}active{% endif %}"
+            >
+              <i class="fas fa-info-circle"></i> About
+            </a>
+          </li>
+        </ul>
+        <div class="nav-toggle">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">{% block content %}{% endblock %}</main>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    {% block extra_scripts %}{% endblock %} {% block page_js %}{% endblock %}
+  </body>
+</html>

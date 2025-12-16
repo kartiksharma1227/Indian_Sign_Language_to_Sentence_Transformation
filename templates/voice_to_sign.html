@@ -1,0 +1,178 @@
+<!--
+  Voice to Sign Language Conversion Page
+  Speech recognition to ISL sign display
+-->
+{% extends "base.html" %} {% block title %}Voice to Sign - ISL Recognition
+Platform{% endblock %} {% block page_css %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/voice_to_sign.css') }}"
+/>
+{% endblock %} {% block content %}
+<div class="voice-to-sign-container">
+  <!-- Header Section -->
+  <div class="vts-header">
+    <div class="vts-header-content">
+      <h1 class="vts-title">
+        <i class="fas fa-microphone-alt"></i>
+        Voice to Sign Language
+      </h1>
+      <p class="vts-subtitle">
+        Speak into your microphone and watch it convert to Indian Sign Language
+      </p>
+    </div>
+  </div>
+
+  <!-- Main Content Grid -->
+  <div class="vts-main-grid">
+    <!-- Left Panel - Controls -->
+    <div class="vts-control-panel">
+      <div class="vts-card">
+        <h3 class="vts-card-title">
+          <i class="fas fa-microphone"></i>
+          Speech Input
+        </h3>
+
+        <!-- Microphone Button -->
+        <div class="vts-mic-container">
+          <button
+            id="micButton"
+            class="vts-mic-button"
+            title="Click to start/stop recording"
+          >
+            <i class="fas fa-microphone"></i>
+          </button>
+          <div id="micStatus" class="vts-mic-status">Click to start</div>
+        </div>
+
+        <!-- Recognition Status -->
+        <div id="recognitionStatus" class="vts-status-box">
+          <i class="fas fa-info-circle"></i>
+          <span>Ready to listen</span>
+        </div>
+
+        <!-- Recognized Text Display -->
+        <div class="vts-text-section">
+          <label class="vts-label">Recognized Text:</label>
+          <div id="recognizedText" class="vts-text-display">
+            Your speech will appear here...
+          </div>
+        </div>
+
+        <!-- Manual Text Input (Alternative) -->
+        <div class="vts-text-section">
+          <label class="vts-label">Or Type Text:</label>
+          <textarea
+            id="manualText"
+            class="vts-textarea"
+            placeholder="Type text here to convert to signs..."
+            rows="3"
+          ></textarea>
+          <button id="convertBtn" class="vts-btn vts-btn-primary">
+            <i class="fas fa-exchange-alt"></i>
+            Convert to Signs
+          </button>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="vts-actions">
+          <button id="clearBtn" class="vts-btn vts-btn-secondary">
+            <i class="fas fa-eraser"></i>
+            Clear
+          </button>
+          <button id="exportBtn" class="vts-btn vts-btn-success" disabled>
+            <i class="fas fa-download"></i>
+            Export
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Right Panel - Sign Display -->
+    <div class="vts-display-panel">
+      <div class="vts-card vts-display-card">
+        <h3 class="vts-card-title">
+          <i class="fas fa-hand-paper"></i>
+          Sign Language Display
+        </h3>
+
+        <!-- Sign Display Area -->
+        <div class="vts-sign-display">
+          <div id="signImageContainer" class="vts-sign-image-container">
+            <div class="vts-placeholder">
+              <i class="fas fa-hands"></i>
+              <p>Signs will appear here</p>
+            </div>
+          </div>
+
+          <!-- Current Letter Display -->
+          <div id="currentLetter" class="vts-current-letter">
+            <span>-</span>
+          </div>
+        </div>
+
+        <!-- Playback Controls -->
+        <div
+          id="playbackControls"
+          class="vts-playback-controls"
+          style="display: none"
+        >
+          <button id="playBtn" class="vts-control-btn">
+            <i class="fas fa-play"></i>
+          </button>
+          <button id="pauseBtn" class="vts-control-btn" style="display: none">
+            <i class="fas fa-pause"></i>
+          </button>
+          <button id="stopBtn" class="vts-control-btn">
+            <i class="fas fa-stop"></i>
+          </button>
+          <button id="replayBtn" class="vts-control-btn">
+            <i class="fas fa-redo"></i>
+          </button>
+        </div>
+
+        <!-- Progress Indicator -->
+        <div
+          id="progressContainer"
+          class="vts-progress-container"
+          style="display: none"
+        >
+          <div class="vts-progress-bar">
+            <div id="progressBar" class="vts-progress-fill"></div>
+          </div>
+          <div id="progressText" class="vts-progress-text">0 / 0</div>
+        </div>
+
+        <!-- Speed Control -->
+        <div class="vts-speed-control">
+          <label class="vts-label">
+            <i class="fas fa-tachometer-alt"></i>
+            Playback Speed:
+          </label>
+          <div class="vts-speed-options">
+            <button class="vts-speed-btn" data-speed="0.5">0.5x</button>
+            <button class="vts-speed-btn active" data-speed="1">1x</button>
+            <button class="vts-speed-btn" data-speed="1.5">1.5x</button>
+            <button class="vts-speed-btn" data-speed="2">2x</button>
+          </div>
+        </div>
+
+        <!-- Sign Sequence Preview -->
+        <div id="signSequence" class="vts-sign-sequence">
+          <!-- Sign thumbnails will be added here -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Notification Toast -->
+<div id="notification" class="vts-notification">
+  <i class="fas fa-check-circle"></i>
+  <span id="notificationText">Notification</span>
+</div>
+{% endblock %} {% block page_js %}
+<script src="{{ url_for('static', filename='js/voice_to_sign.js') }}"></script>
+{% endblock %}

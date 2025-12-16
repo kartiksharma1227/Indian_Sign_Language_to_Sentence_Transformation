@@ -1,0 +1,334 @@
+<!--
+  Detector Page Template - ISL Recognition Platform
+  
+  Modern UI with sidebar navigation inspired by screenshot design
+  Features:
+  - Left sidebar with navigation and quick reference
+  - Center camera feed with detection controls
+  - Right panel with current word, sentence, and stats
+  - Clean, professional layout with improved UX
+-->
+{% extends "base.html" %} {% block title %}ISL Recognition Platform - Live
+Detection{% endblock %} {% block page_css %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/detector.css') }}"
+/>
+{% endblock %} {% block content %}
+<!-- New Modern Detector Layout -->
+<div class="isl-platform-container">
+  <!-- Left Sidebar Navigation -->
+  <aside class="isl-sidebar">
+    <div class="isl-sidebar-section">
+      <h3>QUICK REFERENCE</h3>
+      <div class="isl-quick-ref-grid">
+        <div class="isl-ref-item">
+          <img src="{{ url_for('static', filename='Images/A.jpg') }}" alt="A" />
+          <span class="isl-ref-letter">A</span>
+        </div>
+        <div class="isl-ref-item">
+          <img src="{{ url_for('static', filename='Images/B.jpg') }}" alt="B" />
+          <span class="isl-ref-letter">B</span>
+        </div>
+        <div class="isl-ref-item">
+          <img src="{{ url_for('static', filename='Images/C.jpg') }}" alt="C" />
+          <span class="isl-ref-letter">C</span>
+        </div>
+        <div class="isl-ref-item">
+          <img src="{{ url_for('static', filename='Images/D.jpg') }}" alt="D" />
+          <span class="isl-ref-letter">D</span>
+        </div>
+        <div class="isl-ref-item">
+          <img src="{{ url_for('static', filename='Images/E.jpg') }}" alt="E" />
+          <span class="isl-ref-letter">E</span>
+        </div>
+        <div class="isl-ref-item">
+          <img src="{{ url_for('static', filename='Images/F.jpg') }}" alt="F" />
+          <span class="isl-ref-letter">F</span>
+        </div>
+        <div class="isl-ref-item">
+          <img src="{{ url_for('static', filename='Images/G.jpg') }}" alt="G" />
+          <span class="isl-ref-letter">G</span>
+        </div>
+        <div class="isl-ref-item">
+          <img src="{{ url_for('static', filename='Images/H.jpg') }}" alt="H" />
+          <span class="isl-ref-letter">H</span>
+        </div>
+        <div class="isl-ref-item">
+          <img src="{{ url_for('static', filename='Images/I.jpg') }}" alt="I" />
+          <span class="isl-ref-letter">I</span>
+        </div>
+        <div class="isl-ref-item">
+          <img src="{{ url_for('static', filename='Images/J.jpg') }}" alt="J" />
+          <span class="isl-ref-letter">J</span>
+        </div>
+        <div class="isl-ref-item">
+          <img src="{{ url_for('static', filename='Images/K.jpg') }}" alt="K" />
+          <span class="isl-ref-letter">K</span>
+        </div>
+        <div class="isl-ref-item">
+          <img src="{{ url_for('static', filename='Images/L.jpg') }}" alt="L" />
+          <span class="isl-ref-letter">L</span>
+        </div>
+        <div class="isl-ref-item">
+          <img src="{{ url_for('static', filename='Images/M.jpg') }}" alt="M" />
+          <span class="isl-ref-letter">M</span>
+        </div>
+        <div class="isl-ref-item">
+          <img src="{{ url_for('static', filename='Images/N.jpg') }}" alt="N" />
+          <span class="isl-ref-letter">N</span>
+        </div>
+        <div class="isl-ref-item">
+          <img src="{{ url_for('static', filename='Images/O.jpg') }}" alt="O" />
+          <span class="isl-ref-letter">O</span>
+        </div>
+        <div class="isl-ref-item">
+          <img src="{{ url_for('static', filename='Images/P.jpg') }}" alt="P" />
+          <span class="isl-ref-letter">P</span>
+        </div>
+        <div class="isl-ref-item">
+          <img src="{{ url_for('static', filename='Images/Q.jpg') }}" alt="Q" />
+          <span class="isl-ref-letter">Q</span>
+        </div>
+        <div class="isl-ref-item">
+          <img src="{{ url_for('static', filename='Images/R.jpg') }}" alt="R" />
+          <span class="isl-ref-letter">R</span>
+        </div>
+        <div class="isl-ref-item">
+          <img src="{{ url_for('static', filename='Images/S.jpg') }}" alt="S" />
+          <span class="isl-ref-letter">S</span>
+        </div>
+        <div class="isl-ref-item">
+          <img src="{{ url_for('static', filename='Images/T.jpg') }}" alt="T" />
+          <span class="isl-ref-letter">T</span>
+        </div>
+        <div class="isl-ref-item">
+          <img src="{{ url_for('static', filename='Images/U.jpg') }}" alt="U" />
+          <span class="isl-ref-letter">U</span>
+        </div>
+        <div class="isl-ref-item">
+          <img src="{{ url_for('static', filename='Images/V.jpg') }}" alt="V" />
+          <span class="isl-ref-letter">V</span>
+        </div>
+        <div class="isl-ref-item">
+          <img src="{{ url_for('static', filename='Images/W.jpg') }}" alt="W" />
+          <span class="isl-ref-letter">W</span>
+        </div>
+        <div class="isl-ref-item">
+          <img src="{{ url_for('static', filename='Images/X.jpg') }}" alt="X" />
+          <span class="isl-ref-letter">X</span>
+        </div>
+        <div class="isl-ref-item">
+          <img src="{{ url_for('static', filename='Images/Y.jpg') }}" alt="Y" />
+          <span class="isl-ref-letter">Y</span>
+        </div>
+        <div class="isl-ref-item">
+          <img src="{{ url_for('static', filename='Images/Z.jpg') }}" alt="Z" />
+          <span class="isl-ref-letter">Z</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="isl-sidebar-header">
+      <!-- <h2>FEATURES</h2> -->
+    </div>
+
+    <!-- <nav class="isl-sidebar-nav">
+      <a href="#" class="isl-nav-item active">
+        <i class="fas fa-video"></i>
+        <span>Live Detection</span>
+      </a>
+      <a href="#" class="isl-nav-item">
+        <i class="fas fa-history"></i>
+        <span>History</span>
+      </a>
+      <a href="#" class="isl-nav-item">
+        <i class="fas fa-graduation-cap"></i>
+        <span>Learn Signs</span>
+      </a>
+      <a href="#" class="isl-nav-item">
+        <i class="fas fa-chart-line"></i>
+        <span>Analytics</span>
+      </a>
+    </nav> -->
+  </aside>
+
+  <!-- Main Content Area -->
+  <main class="isl-main-content">
+    <!-- Top Header -->
+    <!-- <header class="isl-top-header">
+      <div class="isl-header-left">
+        <h1>ISL Recognition Platform</h1>
+      </div>
+      <div class="isl-header-right">
+        <button class="isl-icon-btn" title="Notifications">
+          <i class="fas fa-bell"></i>
+        </button>
+        <button class="isl-icon-btn" title="Help">
+          <i class="fas fa-question-circle"></i>
+        </button>
+        <button class="isl-icon-btn" title="Settings">
+          <i class="fas fa-user-circle"></i>
+        </button>
+      </div>
+    </header> -->
+
+    <!-- Camera Status Banner
+    <div class="isl-camera-status" id="cameraStatus">
+      <span class="isl-status-indicator"></span>
+      <span class="isl-status-text">Camera Ready</span>
+    </div> -->
+
+    <!-- Camera Feed and Controls -->
+    <div class="isl-camera-section">
+      <div class="isl-video-wrapper">
+        <div class="isl-video-container">
+          <!-- Video Placeholder -->
+          <div class="isl-video-placeholder" id="videoPlaceholder">
+            <div class="isl-camera-icon">
+              <i class="fas fa-camera"></i>
+            </div>
+            <h3>Camera Standby</h3>
+            <p>Click "Start Detection" to activate</p>
+          </div>
+
+          <!-- Video Stream -->
+          <img
+            id="videoStream"
+            style="display: none; width: 100%; height: 100%; object-fit: cover"
+          />
+
+          <!-- Video Canvas (legacy) -->
+          <canvas id="videoCanvas" style="display: none"></canvas>
+        </div>
+
+        <!-- Video Controls Bar -->
+        <div class="isl-video-controls">
+          <button id="startBtn" class="isl-btn isl-btn-start">
+            <i class="fas fa-play"></i>
+            <span>Start Detection</span>
+          </button>
+          <button
+            id="stopBtn"
+            class="isl-btn isl-btn-stop"
+            style="display: none"
+          >
+            <i class="fas fa-stop"></i>
+            <span>Stop Detection</span>
+          </button>
+          <!-- <button class="isl-icon-btn isl-btn-settings">
+            <i class="fas fa-cog"></i>
+          </button> -->
+        </div>
+      </div>
+
+      <!-- Letter Hold Duration -->
+      <div class="isl-duration-display">
+        <span class="isl-duration-label">Letter Hold Duration</span>
+        <div class="isl-duration-bar">
+          <div class="isl-duration-fill" id="letterProgress"></div>
+        </div>
+        <span class="isl-duration-time" id="letterProgressText"
+          >0.0s / 1.5s</span
+        >
+      </div>
+
+      <!-- Space Gesture Duration (ASL 'H') -->
+      <div
+        class="isl-duration-display isl-space-duration"
+        id="spaceDurationContainer"
+        style="display: none"
+      >
+        <span class="isl-duration-label">Space Gesture (ASL 'H') Duration</span>
+        <div class="isl-duration-bar isl-space-bar">
+          <div
+            class="isl-duration-fill isl-space-fill"
+            id="spaceProgress"
+          ></div>
+        </div>
+        <span class="isl-duration-time" id="spaceProgressText"
+          >0.0s / 1.5s</span
+        >
+      </div>
+    </div>
+  </main>
+
+  <!-- Right Sidebar Panel -->
+  <aside class="isl-right-panel">
+    <!-- Current Word Section -->
+    <div class="isl-panel-section">
+      <div class="isl-section-header">
+        <h3>CURRENT WORD</h3>
+        <button
+          id="backspaceBtn"
+          class="isl-backspace-btn"
+          title="Backspace (Delete last character)"
+        >
+          <i class="fas fa-backspace"></i>
+          Backspace
+        </button>
+      </div>
+      <div class="isl-word-display" id="currentWord">
+        <span class="isl-placeholder">Sign to begin</span>
+      </div>
+    </div>
+
+    <!-- Full Sentence Section -->
+    <div class="isl-panel-section">
+      <div class="isl-section-header">
+        <h3>FULL SENTENCE</h3>
+        <button
+          id="saveSentenceBtn"
+          class="isl-export-btn"
+          title="Export sentence"
+        >
+          Export
+        </button>
+      </div>
+      <div class="isl-sentence-display" id="currentSentence">
+        <span class="isl-placeholder">Your sentence will appear here...</span>
+      </div>
+    </div>
+
+    <!-- Session Stats Section
+    <div class="isl-panel-section">
+      <h3 class="isl-section-title">SESSION STATS</h3>
+      <div class="isl-stats-grid">
+        <div class="isl-stat-item">
+          <div class="isl-stat-value" id="letterCount">0</div>
+          <div class="isl-stat-label">LETTERS</div>
+        </div>
+        <div class="isl-stat-item">
+          <div class="isl-stat-value" id="wordCount">0</div>
+          <div class="isl-stat-label">WORDS</div>
+        </div>
+        <div class="isl-stat-item">
+          <div class="isl-stat-value" id="accuracyRate">0%</div>
+          <div class="isl-stat-label">ACCURACY</div>
+        </div>
+        <div class="isl-stat-item">
+          <div class="isl-stat-value" id="sessionTime">0:00</div>
+          <div class="isl-stat-label">TIME</div>
+        </div>
+      </div>
+    </div> -->
+
+    <!-- Currently Detecting Display -->
+    <div class="isl-panel-section">
+      <h3 class="isl-section-title">CURRENTLY DETECTING</h3>
+      <div class="isl-detecting-display" id="detectedLetter" data-state="idle">
+        <span class="isl-detected-letter">-</span>
+      </div>
+    </div>
+
+    <!-- Reset Sentence Button -->
+    <button id="resetSentenceBtn" class="isl-btn isl-btn-reset-full">
+      <i class="fas fa-trash"></i>
+      <span>Reset All</span>
+    </button>
+  </aside>
+</div>
+
+{% endblock %} {% block extra_scripts %}
+<script src="{{ url_for('static', filename='js/detector.js') }}"></script>
+{% endblock %}

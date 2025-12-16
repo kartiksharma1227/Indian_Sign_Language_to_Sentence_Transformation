@@ -1,0 +1,232 @@
+<!--
+  Home Page Template - ISL Recognition Platform
+  Modern UI matching the detector page theme
+-->
+{% extends "base.html" %} {% block title %}ISL Recognition Platform - Home{%
+endblock %} {% block page_css %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/index.css') }}"
+/>
+{% endblock %} {% block content %}
+<!-- Modern Hero Section -->
+<section class="isl-home-hero">
+  <div class="isl-home-container">
+    <div class="isl-hero-grid">
+      <div class="isl-hero-content">
+        <!-- <span class="isl-hero-badge">
+          <i class="fas fa-bolt"></i>
+          AI-Powered Translation
+        </span> -->
+        <h1 class="isl-hero-title">
+          Break Communication Barriers with
+          <span class="isl-gradient-text">Indian Sign Language</span>
+        </h1>
+        <p class="isl-hero-description">
+          Real-time AI-powered sign language translation. Empowering the deaf
+          and hard of hearing community with accessible, accurate communication
+          technology.
+        </p>
+        <div class="isl-hero-actions">
+          <a
+            href="{{ url_for('detector') }}"
+            class="isl-btn isl-btn-primary-large"
+          >
+            <i class="fas fa-video"></i>
+            <span>Sign to Text</span>
+          </a>
+          <a
+            href="{{ url_for('voice_to_sign') }}"
+            class="isl-btn isl-btn-secondary-large"
+          >
+            <i class="fas fa-microphone-alt"></i>
+            <span>Voice to Sign</span>
+          </a>
+        </div>
+        <div class="isl-hero-stats">
+          <div class="isl-hero-stat">
+            <strong>99.32%</strong>
+            <span>Accuracy</span>
+          </div>
+          <div class="isl-hero-stat">
+            <strong>36</strong>
+            <span>Signs</span>
+          </div>
+          <div class="isl-hero-stat">
+            <strong>Real-time</strong>
+            <span>Processing</span>
+          </div>
+        </div>
+      </div>
+      <div class="isl-hero-visual">
+        <div class="isl-hero-card isl-card-float-1">
+          <div class="isl-card-icon">
+            <i class="fas fa-hand-paper"></i>
+          </div>
+          <div class="isl-card-text">
+            <strong>Hand Detection</strong>
+            <span>21 landmark tracking</span>
+          </div>
+        </div>
+        <div class="isl-hero-card isl-card-float-2">
+          <div class="isl-card-icon">
+            <i class="fas fa-brain"></i>
+          </div>
+          <div class="isl-card-text">
+            <strong>AI Classification</strong>
+            <span>Neural network powered</span>
+          </div>
+        </div>
+        <div class="isl-hero-card isl-card-float-3">
+          <div class="isl-card-icon">
+            <i class="fas fa-spell-check"></i>
+          </div>
+          <div class="isl-card-text">
+            <strong>Word Building</strong>
+            <span>Smart autocorrect</span>
+          </div>
+        </div>
+        <div class="isl-hero-illustration">
+          <div class="isl-illustration-circle"></div>
+          <i class="fas fa-hands"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Features Section -->
+<section class="isl-home-features">
+  <div class="isl-home-container">
+    <div class="isl-section-header">
+      <span class="isl-section-badge">Features</span>
+      <h2 class="isl-section-title">Powerful Translation Technology</h2>
+      <p class="isl-section-description">
+        Experience cutting-edge sign language detection with advanced AI and
+        computer vision
+      </p>
+    </div>
+
+    <div class="isl-features-grid">
+      <div class="isl-feature-card">
+        <div class="isl-feature-icon-box">
+          <i class="fas fa-bolt"></i>
+        </div>
+        <h3 class="isl-feature-title">Real-Time Detection</h3>
+        <p class="isl-feature-description">
+          Instant translation with minimal latency. Our AI model processes hand
+          gestures in real-time for natural, flowing communication.
+        </p>
+        <ul class="isl-feature-list">
+          <li><i class="fas fa-check-circle"></i>Instant Translation</li>
+          <li><i class="fas fa-check-circle"></i>99.32%</li>
+          <li><i class="fas fa-check-circle"></i>ISL Support</li>
+        </ul>
+        <a href="{{ url_for('detector') }}" class="isl-feature-link">
+          Try Now <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <div class="isl-feature-card">
+        <div class="isl-feature-icon-box">
+          <i class="fas fa-spell-check"></i>
+        </div>
+        <h3 class="isl-feature-title">Smart Word Building</h3>
+        <p class="isl-feature-description">
+          Intelligent algorithm that builds words letter-by-letter with
+          autocorrect capabilities for accurate sentence formation.
+        </p>
+        <ul class="isl-feature-list">
+          <li><i class="fas fa-check-circle"></i>Letter Recognition</li>
+          <li><i class="fas fa-check-circle"></i>Auto-correct</li>
+          <li><i class="fas fa-check-circle"></i>Context-Aware</li>
+        </ul>
+        <a href="{{ url_for('detector') }}" class="isl-feature-link">
+          Learn More <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <div class="isl-feature-card">
+        <div class="isl-feature-icon-box">
+          <i class="fas fa-save"></i>
+        </div>
+        <h3 class="isl-feature-title">Export & Save</h3>
+        <p class="isl-feature-description">
+          Save translated sentences and export for documentation. Perfect for
+          creating communication logs and records.
+        </p>
+        <ul class="isl-feature-list">
+          <li><i class="fas fa-check-circle"></i>Text Export</li>
+          <li><i class="fas fa-check-circle"></i>Timestamped</li>
+          <li><i class="fas fa-check-circle"></i>Easy Sharing</li>
+        </ul>
+        <a href="{{ url_for('detector') }}" class="isl-feature-link">
+          Get Started <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Stats Section -->
+<section class="isl-home-stats">
+  <div class="isl-home-container">
+    <div class="isl-stats-grid-home">
+      <div class="isl-stat-card">
+        <div class="isl-stat-icon">
+          <i class="fas fa-hand-paper"></i>
+        </div>
+        <div class="isl-stat-number">36</div>
+        <div class="isl-stat-label">Recognized Signs</div>
+        <p class="isl-stat-desc">A-Z letters + 1-9 numbers</p>
+      </div>
+      <div class="isl-stat-card">
+        <div class="isl-stat-icon">
+          <i class="fas fa-bullseye"></i>
+        </div>
+        <div class="isl-stat-number">99.32%</div>
+        <div class="isl-stat-label">Accuracy Rate</div>
+        <p class="isl-stat-desc">Tested on diverse datasets</p>
+      </div>
+      <div class="isl-stat-card">
+        <div class="isl-stat-icon">
+          <i class="fas fa-clock"></i>
+        </div>
+        <div class="isl-stat-number">1.5s</div>
+        <div class="isl-stat-label">Hold Duration</div>
+        <p class="isl-stat-desc">Optimal recognition time</p>
+      </div>
+      <div class="isl-stat-card">
+        <div class="isl-stat-icon">
+          <i class="fas fa-bolt"></i>
+        </div>
+        <div class="isl-stat-number">Real-time</div>
+        <div class="isl-stat-label">Processing</div>
+        <p class="isl-stat-desc">Instant translation</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="isl-home-cta">
+  <div class="isl-home-container">
+    <div class="isl-cta-box">
+      <div class="isl-cta-content">
+        <h2 class="isl-cta-title">Ready to Break Communication Barriers?</h2>
+        <p class="isl-cta-description">
+          Start using our AI-powered sign language detector now and experience
+          real-time translation
+        </p>
+        <a href="{{ url_for('detector') }}" class="isl-btn isl-btn-cta">
+          <i class="fas fa-video"></i>
+          <span>Launch Detector</span>
+        </a>
+      </div>
+      <div class="isl-cta-visual">
+        <i class="fas fa-hands-helping"></i>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

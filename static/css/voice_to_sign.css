@@ -354,15 +354,14 @@ body {
 
 /* Display Panel */
 .vts-display-panel {
-  min-height: 600px;
   width: 100%;
 }
 
 .vts-display-card {
-  height: 100%;
   display: flex;
   flex-direction: column;
   width: 100%;
+  align-items: stretch;
 }
 
 .vts-sign-display {
@@ -370,10 +369,11 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   margin-bottom: 1.5rem;
   width: 100%;
   text-align: center;
+  min-height: 500px;
 }
 
 .vts-sign-image-container {
@@ -389,7 +389,8 @@ body {
   overflow: hidden;
   position: relative;
   padding: 1rem;
-  margin: 0 auto;
+  margin: 0 auto 1rem auto;
+  flex-shrink: 0;
 }
 
 .vts-sign-image-container img {
@@ -418,10 +419,16 @@ body {
   text-align: center;
   color: var(--text-muted);
   width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 .vts-placeholder i {
@@ -435,15 +442,17 @@ body {
 }
 
 .vts-current-letter {
-  margin-top: 1rem;
+  margin-top: 0;
   font-size: 2rem;
   font-weight: 700;
   color: var(--primary-color);
   text-align: center;
   min-height: 3rem;
+  height: 3rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 
 /* Playback Controls */
