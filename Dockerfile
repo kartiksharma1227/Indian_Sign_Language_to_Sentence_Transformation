@@ -1,4 +1,4 @@
-FROM python:3.10-slim-buster
+FROM python:3.10-slim-bullseye
 
 # Install system dependencies required for OpenCV and MediaPipe
 RUN apt-get update && apt-get install -y \
