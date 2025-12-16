@@ -109,22 +109,41 @@ IVP/
 1. **Clone or download the project**
 
    ```bash
-   cd /path/to/IVP
+   cd /path/to/project
    ```
 
-2. **Install dependencies**
+2. **Create a virtual environment**
+
+   ```bash
+   python -m venv isl
+   ```
+
+3. **Activate the virtual environment**
+
+   - On macOS/Linux:
+
+     ```bash
+     source isl/bin/activate
+     ```
+
+   - On Windows:
+     ```bash
+     isl\Scripts\activate
+     ```
+
+4. **Install dependencies**
 
    ```bash
    pip install -r requirements.txt
    ```
 
-3. **Run the application**
+5. **Run the application**
 
    ```bash
    python app.py
    ```
 
-4. **Access the application**
+6. **Access the application**
    - Open your browser and navigate to: `http://localhost:5001`
 
 ## Usage Guide
@@ -302,48 +321,13 @@ Sentences are automatically saved to the `saved_sentences/` directory with:
 - **Chrome/Edge**: Recommended (best performance)
 - **Firefox**: Fully supported
 - **Safari**: Supported with minor limitations
-- **Mobile browsers**: Supported but performance may vary
+ 
 
 ### Voice Recognition
 
 - **Chrome/Edge**: Full support for Web Speech API
 - **Safari**: Supported on macOS and iOS
 - **Firefox**: Limited support (manual text input recommended)
-- **Mobile browsers**: Supported on Chrome (Android) and Safari (iOS)
-
-## Future Enhancements
-
-- [ ] Support for word-level sign language gestures
-- [ ] Multi-hand detection for more complex signs
-- [ ] Voice output for translated text (Text-to-Speech)
-- [ ] Additional sign language systems (ASL, BSL, etc.)
-- [ ] Mobile application version
-- [ ] Cloud-based model for better accuracy
-- [ ] User accounts and history tracking
-- [ ] Offline voice recognition support
-- [ ] Video recording of sign sequences
-- [ ] Sign language grammar and sentence structure support
-
-## Credits
-
-**Course Project** - Indian Sign Language Translator
-
-- Built with Flask, TensorFlow, MediaPipe, and OpenCV
-- Uses Google's MediaPipe Hand Tracking solution
-- Neural network trained on ISL gesture dataset
-
-## License
-
-This project is created for educational purposes as part of a course project.
-
-## Support
-
-For issues or questions:
-
-1. Check the troubleshooting section
-2. Review the code documentation
-3. Ensure all dependencies are correctly installed
-4. Verify camera permissions and availability
 
 ---
 
