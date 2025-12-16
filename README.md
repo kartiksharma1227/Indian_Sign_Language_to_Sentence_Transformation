@@ -9,6 +9,23 @@ This is a comprehensive Indian Sign Language (ISL) translation web application b
 
 This dual-functionality makes the application useful for both hearing-impaired individuals to communicate with others and for people to learn and understand sign language.
 
+## Screenshots
+
+### Home Page
+
+![Home Page](Demo/home_page.png)
+_Landing page with navigation to different features_
+
+### Sign to Text Detection
+
+![Sign Detection](Demo/detector_page.png)
+_Real-time sign language gesture recognition interface_
+
+### Voice to Sign Conversion
+
+![Voice to Sign](Demo/voice_to_sign_page.png)
+_Speech recognition and sign language display interface_
+
 ## Features
 
 ### Sign to Text Translation
@@ -126,7 +143,7 @@ IVP/
 1. **Form a sign** with your hand (A-Z or 1-9)
 2. **Hold the gesture steady** for 1.5 seconds
 3. The letter will be added to your current word
-4. **Remove your hand** for 3 seconds to add a space between words
+4. **Use the ASL H symbol** to add a space between words
 
 #### Keyboard Shortcuts
 
@@ -192,7 +209,7 @@ IVP/
 #### Detection Logic
 
 - **Hold Time**: 1.5 seconds to confirm letter addition
-- **Space Delay**: 3.0 seconds without hand to add space
+- **Space Gesture**: ASL H symbol to add space between words
 - **Frame Rate Control**: Optimized processing intervals for performance
 
 ## Model Information

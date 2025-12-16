@@ -8,8 +8,8 @@
  * - Parallax effects
  * - Utility functions for status messages and timing
  *
- * @author Course Project
- * @version 1.0
+ *  
+ *  
  */
 
 /**
