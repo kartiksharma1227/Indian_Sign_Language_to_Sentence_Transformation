@@ -14,7 +14,7 @@ itsdangerous==2.1.2
 # Computer Vision and Machine Learning
 # -------------------------------------
 opencv-python-headless==4.8.1.78  # Headless version for servers (no GUI)
-mediapipe               # Pinned to stable Linux-compatible version
+mediapipe==0.10.8          # Pinned to stable Linux-compatible version
 tensorflow==2.15.0                # Downgraded for MediaPipe compatibility
 numpy==1.24.3                     # Compatible with TensorFlow 2.15
 pandas==2.0.3                     # Data manipulation library
